@@ -1,0 +1,139 @@
+/************ defining variables for colours ***************************/
+$orange: #ff7f00;
+$green: #d8da3d;
+$purple: #80007e;
+$blue: #0000ff;
+
+/******************* removing default styling **************/
+* {
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/******** global styling *********************/
+body {
+    background-color: $green;
+    color: $purple;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-container {
+    display: flex;
+}
+
+/******** making custom left container **********/
+.custom-left-container {
+    margin-right: 10px;
+    width: 200px;
+    margin-left: 5px;
+    margin-top: 15px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/****** left container extends the property of custom left container ********************/
+.left-container {
+    @extend .custom-left-container;
+}
+
+/******** using mixins to define property of 4 left boxes **************/
+@mixin containerproperty($border-color) {
+    background-color: white;
+    margin: 7px 5px;
+    padding: 5px;
+    color: #80007e;
+    border-right: 15px solid $border-color;
+}
+
+.container1 {
+    @include containerproperty($orange);
+}
+
+.container2 {
+    @include containerproperty($blue);
+}
+
+/************ using nesting in defining right container ***********/
+
+.right-container {
+    margin-top: 10px;
+    margin-left: 15px;
+    width: 100%;
+
+    .right-heading {
+        margin-bottom: 15px;
+    }
+
+    .right-content {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        margin-top: 18px;
+    }
+
+    .dotted-margin {
+        border-style: dotted;
+        border-width: 0px 0px 2px 0px;
+        padding: 30px;
+    }
+}
+
+/**************** custom mixin to define right bordered containers styling**********************/
+
+@mixin custom-right-content($border-color,$border-width,$alignment,$font-style) {
+    border-style: dashed;
+    border-color: $border-color;
+    padding: 5px;
+    font-family: "Times New Roman", Times, serif;
+    color: black;
+    text-align: $alignment;
+    border-width: $border-width;
+    margin: 20px 0px 15px 0px;
+    width: 70%;
+    font-size: large;
+    font-style: $font-style;
+}
+
+.right-content1 {
+    @include custom-right-content(black, 2px, left, normal);
+}
+
+.right-content2 {
+    @include custom-right-content($orange, 2px, right, italic);
+}
+
+.right-content3 {
+    @include custom-right-content($blue, 1px, center, bold);
+}
+
+/*************** footer section ******************************/
+
+.footer-content {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-style: italic;
+    margin-top: 40px;
+}
+
+/********************* bounce effect ****************************/
+
+.bounce-effect:hover {
+    animation: bounce 2s infinite;
+    transition: transform 0.2s ease-in-out;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-15px);
+    }
+}

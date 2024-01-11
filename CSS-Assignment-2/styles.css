@@ -1,0 +1,132 @@
+/************ defining variables for colours ***************************/
+/******************* removing default styling **************/
+* {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+}
+
+/******** global styling *********************/
+body {
+  background-color: #d8da3d;
+  color: #80007e;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.top-container {
+  display: flex;
+}
+
+/******** making custom left container **********/
+.custom-left-container, .left-container {
+  margin-right: 10px;
+  width: 200px;
+  margin-left: 5px;
+  margin-top: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+/****** left container extends the property of custom left container ********************/
+/******** using mixins to define property of 4 left boxes **************/
+.container1 {
+  background-color: white;
+  margin: 7px 5px;
+  padding: 5px;
+  color: #80007e;
+  border-right: 15px solid #ff7f00;
+}
+
+.container2 {
+  background-color: white;
+  margin: 7px 5px;
+  padding: 5px;
+  color: #80007e;
+  border-right: 15px solid #0000ff;
+}
+
+/************ using nesting in defining right container ***********/
+.right-container {
+  margin-top: 10px;
+  margin-left: 15px;
+  width: 100%;
+}
+.right-container .right-heading {
+  margin-bottom: 15px;
+}
+.right-container .right-content {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top: 18px;
+}
+.right-container .dotted-margin {
+  border-style: dotted;
+  border-width: 0px 0px 2px 0px;
+  padding: 30px;
+}
+
+/**************** custom mixin to define right bordered containers styling**********************/
+.right-content1 {
+  border-style: dashed;
+  border-color: black;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  text-align: left;
+  border-width: 2px;
+  margin: 20px 0px 15px 0px;
+  width: 70%;
+  font-size: large;
+  font-style: normal;
+}
+
+.right-content2 {
+  border-style: dashed;
+  border-color: #ff7f00;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  text-align: right;
+  border-width: 2px;
+  margin: 20px 0px 15px 0px;
+  width: 70%;
+  font-size: large;
+  font-style: italic;
+}
+
+.right-content3 {
+  border-style: dashed;
+  border-color: #0000ff;
+  padding: 5px;
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+  text-align: center;
+  border-width: 1px;
+  margin: 20px 0px 15px 0px;
+  width: 70%;
+  font-size: large;
+  font-style: bold;
+}
+
+/*************** footer section ******************************/
+.footer-content {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  margin-top: 40px;
+}
+
+/********************* bounce effect ****************************/
+.bounce-effect:hover {
+  animation: bounce 2s infinite;
+  transition: transform 0.2s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}/*# sourceMappingURL=styles.css.map */
